@@ -42,8 +42,8 @@ def selection_sort( arr ):
 # 2. If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1. 
 # 
 import random
-l = list(range(100))
-random.shuffle(l)
+test_list = list(range(100))
+random.shuffle(test_list)
 # print(l)
 
 
@@ -51,17 +51,41 @@ def bubble_sort( arr ):
     for i in range(1,len(arr)):
             temp = arr[i]
             compare = arr[i - 1]
-            arr_length = len(arr)
-            while arr_length > 0 and temp < compare:
+            stop = len(arr)
+   
+            while stop > 0 and temp < compare:
                 # print(f"Compare: {compare} is greater than temp: {temp}")
                 arr[i-1] = temp
                 arr[i] = compare
-                arr_length -= 1
+                stop-=1
+               
+                return bubble_sort(arr)
     return arr
 
     
+test_list_2 = [1,87,45,6,78,9,4,4,14,15,16,18,25,23,22,24]
+test_list_3 = [1,87,45,6,78,9,4,4]
 
-print(bubble_sort([1,2,5,8,115,20]))
+print(bubble_sort([1, 2, 5, 8, 20, 115, 45]))
+print(bubble_sort(test_list_2))
+print(bubble_sort(test_list_3))
+# print(bubble_sort(test_list))
+
+def bubble_sort2( arr ):
+    for i in range(1,len(arr)):
+            temp = arr[i]
+            compare = arr[i - 1]
+            while temp < compare:
+                # print(f"Compare: {compare} is greater than temp: {temp}")
+                arr[i-1] = temp
+                arr[i] = compare
+               
+                return bubble_sort(arr)
+    return arr
+
+print(bubble_sort2([1, 2, 5, 8, 20, 115, 45]))
+print(bubble_sort2(test_list_2))
+print(bubble_sort2(test_list_3))
 
 
 
