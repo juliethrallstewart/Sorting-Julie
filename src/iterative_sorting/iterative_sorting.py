@@ -14,26 +14,26 @@ def insertion_sort(arr):
     return arr
     # c. When the correct indexis found, copy [temp] into this position
 
-# TO-DO: Complete the selection_sort() function below 
+ 
 def selection_sort( arr ):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc) 
-             
+        if arr[cur_index] <= arr[cur_index + 1]:
+            print(f"if {arr[cur_index]} <= {arr[cur_index + 1]}")
+ 
+        elif arr[cur_index] > arr[cur_index + 1]:
+            print(f"else {arr[cur_index]} > {arr[cur_index + 1]}")
 
+            smallest_index = arr[cur_index + 1]
+            arr[cur_index], arr[cur_index + 1] = arr[cur_index + 1], arr[cur_index]
 
-
-        # TO-DO: swap
-
-
-
-
+            return selection_sort(arr)
     return arr
 
 
+print(selection_sort([2,5,3,8,7]), "selection sort")
+print(selection_sort([1,87,45,6,78,9,4,4,14,15,16,18,25,23,22,24]), "selection sort")
 # TO-DO:  implement the Bubble Sort function below
 
 # 1. Loop through your array
@@ -65,10 +65,11 @@ def bubble_sort( arr ):
     
 test_list_2 = [1,87,45,6,78,9,4,4,14,15,16,18,25,23,22,24]
 test_list_3 = [1,87,45,6,78,9,4,4]
+arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
 
-print(bubble_sort([1, 2, 5, 8, 20, 115, 45]))
-print(bubble_sort(test_list_2))
-print(bubble_sort(test_list_3))
+# print(bubble_sort([1, 2, 5, 8, 20, 115, 45]))
+# print(bubble_sort(test_list_2))
+# print(bubble_sort(test_list_3))
 # print(bubble_sort(test_list))
 
 def bubble_sort2( arr ):
@@ -83,11 +84,26 @@ def bubble_sort2( arr ):
                 return bubble_sort(arr)
     return arr
 
-print(bubble_sort2([1, 2, 5, 8, 20, 115, 45]))
-print(bubble_sort2(test_list_2))
-print(bubble_sort2(test_list_3))
+# print(bubble_sort2([1, 2, 5, 8, 20, 115, 45]))
+# print(bubble_sort2(test_list_2))
+# print(bubble_sort2(test_list_3))
+# print(bubble_sort2(arr1))
 
+# michaels version without recursion and swapping values
+def bubble_sort3( arr ):
+    swap = True
+    while swap == True:
+        for i in range(0, len(arr) - 1):
+            swap = False
+            if arr[i] > arr[i + 1]:
+                arr[i],arr[i + 1] = arr[i + 1], arr[i]
+                swap = True
+    return arr
 
+# print(bubble_sort3([1, 2, 5, 8, 20, 115, 45]))
+# print(bubble_sort3(test_list_2))
+# print(bubble_sort3(test_list_3))
+# print(bubble_sort3(arr1))
 
 
 
