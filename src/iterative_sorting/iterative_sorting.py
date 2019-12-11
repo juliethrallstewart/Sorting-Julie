@@ -24,8 +24,6 @@ def selection_sort( arr ):
  
         elif arr[cur_index] > arr[cur_index + 1]:
             print(f"else {arr[cur_index]} > {arr[cur_index + 1]} swap variables")
-
-            smallest_index = arr[cur_index + 1]
             arr[cur_index], arr[cur_index + 1] = arr[cur_index + 1], arr[cur_index]
 
             return selection_sort(arr)
