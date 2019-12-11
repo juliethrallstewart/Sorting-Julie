@@ -20,10 +20,10 @@ def selection_sort( arr ):
     for i in range(0, len(arr) - 1):
         cur_index = i
         if arr[cur_index] <= arr[cur_index + 1]:
-            print(f"if {arr[cur_index]} <= {arr[cur_index + 1]}")
+            print(f"if {arr[cur_index]} <= {arr[cur_index + 1]} do nothing")
  
         elif arr[cur_index] > arr[cur_index + 1]:
-            print(f"else {arr[cur_index]} > {arr[cur_index + 1]}")
+            print(f"else {arr[cur_index]} > {arr[cur_index + 1]} swap variables")
 
             smallest_index = arr[cur_index + 1]
             arr[cur_index], arr[cur_index + 1] = arr[cur_index + 1], arr[cur_index]
