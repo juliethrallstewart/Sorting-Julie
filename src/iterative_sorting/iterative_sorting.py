@@ -14,6 +14,12 @@ def insertion_sort(arr):
     return arr
     # c. When the correct indexis found, copy [temp] into this position
 
+###
+# smallest_index = 0
+        
+# for g in range(1,len(arr)):
+#             if arr[g] < arr[smallest_index]:
+#                 smallest_index = g
  
 def selection_sort( arr ):
     # loop through n-1 elements
