@@ -1,51 +1,71 @@
 # TO-DO: complete the help function below to merge 2 sorted arrays
-def merge( arrA, arrB ):
+def merge( arr, arrA, arrB ):
     print(f"arrA: {arrA}, arrB: {arrB}")
     elements = int(len( arrA ) + len( arrB ) / 2 - 1)
     element = int(len( arrA ) + len( arrB ))
     merged_arr = [0] * elements
 
     if element == 0:
-        print(element)
         return merged_arr
 
     if element == 1:
-        print(element)
         concat_arr = arrA + arrB
         merged_arr.insert(0,concat_arr[0])
         return merged_arr
-    
+
     num1 = 0
     num2 = 0
-    count = 0
-    for i in range(elements-1):
-        if arrA[num1] <= arrB[num2]:
-            print(f"a: {i} = {arrA[num1]}, a: {i+1} = {arrB[num2]} LESS THAN")
-            merged_arr[i] = arrA[num1]
-            merged_arr[i+1] = arrB[num2]
-            num1 += 1
-            count+=1
-   
+    index = 0
+    while num1 < len(arrA) and num2 < len(arrB):
+        if arrA[num1] < arrB[num2]:
+            arr[index] = arrA[num1]
+            num1+=1
+            index+=1
         else:
-            print(f"a: {i} = {arrB[num2]}, a: {i+1} = {arrA[num1]} GREATER THAN")
-            merged_arr[i] = arrB[num2]
-            merged_arr[i+1] = arrA[num2]
-            num2 += 1
-            count+=1
-
-    return merged_arr
+            arr[index] = arrB[num2]
+            num2+=1
+            index+=1
+    print(arr, "this is the arr")
+    
            
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
-    arr_length = len(arr)
-    arr_half_length = int(arr_length / 2)
-    fh = arr[0:arr_half_length]
-    sh = arr[arr_half_length:]
- 
-    return merge( fh,sh )
-    return arr
+    if len(arr) > 1:
+        arr_length = len(arr)
+        arr_half_length = int(arr_length / 2)
+        fh = arr[:arr_half_length]
+        sh = arr[arr_half_length:]
+     
+        merge_sort( fh )
+        merge_sort( sh )
 
-print(merge_sort([]))
+        num1 = 0
+        num2 = 0
+        index = 0
+        while num1 < len(fh) and num2 < len(sh):
+            if fh[num1] < sh[num2]:
+                arr[index] = fh[num1]
+                num1+=1
+            else:
+                arr[index] = sh[num2]
+                num2+=1
+            index+=1
+
+        while num1 < len(fh):
+            arr[index] = fh[num1]
+            num1+=1
+            index+=1
+
+        while num2 < len(sh):
+            arr[index] = sh[num2]
+            num2+=1
+            index+=1
+        
+    return arr
+   
+arr = [12, 11, 13, 5, 6, 7]
+print(merge_sort([1,5,4,20,2,3]))
+print(merge_sort(arr))
 
 
 # arr = [1,2,3,4,5,6]
